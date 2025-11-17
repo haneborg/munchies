@@ -1,0 +1,12 @@
+.section-title {
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 100%;
+    letter-spacing: -0.5px;
+}
+
+.restaurant-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}

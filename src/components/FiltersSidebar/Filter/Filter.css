@@ -1,0 +1,39 @@
+.filter-title {
+    font-weight: 590;
+    font-size: 12px;
+    line-height: 100%;
+    text-transform: uppercase;
+    opacity: 0.4;
+}
+
+.options-container {
+    padding-top: 8px;
+    display: grid;
+    gap: 10px;
+    padding-bottom: 15px;
+}
+
+.options-container.auto {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.options-container.single-column {
+    grid-template-columns: 1fr;
+}
+
+.option-button {
+    width: fit-content;
+    height: 31px;
+    
+    padding-top: 8px;
+    padding-right: 8px;
+    padding-bottom: 8px;
+    padding-left: 8px;
+}
+
+.option-button.selected {
+    background-color: var(--green);
+    color: white;
+}

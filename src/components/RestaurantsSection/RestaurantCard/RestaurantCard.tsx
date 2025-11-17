@@ -1,0 +1,37 @@
+import React from "react";
+import './RestaurantCard.css';
+
+interface RestaurantCardProps {
+    name: string;
+    isOpen: boolean;
+    deliveryTime: number;
+    category: string;
+}
+
+const RestaurantCard: React.FC<RestaurantCardProps> = ({ isOpen, deliveryTime, category, name }) => {
+    const isOpenString = isOpen ? "open" : "closed";
+    const isOpenStringCapitalized = isOpen ? "Open" : "Closed";
+
+    return (
+        <>
+            <div className="card restaurant-card">
+                <div className="top-content">
+                    <p className={"open-status " + isOpenString}>
+                        <div className={"colored-circle " + isOpenString}></div>
+                        {isOpenStringCapitalized}</p>
+                    {isOpen && <p className="delivery-time">{deliveryTime} min</p>}
+                </div>
+                <img src={`/src/assets/images/${category}.png`} className={"restaurant-category-image " + isOpenString} />
+                {!isOpen && <div className="centered"><p className="opening-time-overlay">
+                    Opens tomorrow at 12 pm
+                </p></div>}
+                <div className={"bottom-content " + isOpenString}>
+                    <p className={"name " + isOpenString}>{name}</p>
+                    <p className={"button"}>→</p>
+                </div>
+            </div>
+        </>
+    );
+}
+
+export default RestaurantCard;
