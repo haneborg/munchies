@@ -26,7 +26,7 @@
 .option-button {
     width: fit-content;
     height: 31px;
-    
+
     padding-top: 8px;
     padding-right: 8px;
     padding-bottom: 8px;
@@ -34,6 +34,5 @@
 }
 
 .option-button.selected {
-    background-color: var(--green);
-    color: white;
+    background-color: var(--stroke);
 }

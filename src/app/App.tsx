@@ -1,18 +1,17 @@
-import { useState } from "react";
-import HomePage from "../pages/Home/HomePage";
-import WebPage from "../pages/Web/WebPage";
+import HomePage from "../pages/HomePage/HomePage";
 import './App.css';
+import { isMobileView } from "../util/util";
+import IntroPage from "../pages/IntroPage/IntroPage";
+import React from "react";
 
 function App() {
-  const [page, setPage] = useState<"home" | "web" | "app">("home");
+  const breakpoint = 480;
+  const isMobile = isMobileView(breakpoint);
 
-  if (page === "web") return <WebPage />;
+  const [continuePressed, setContinuePressed] = React.useState(false);
 
   return (
-    <HomePage
-      onWebClick={() => setPage("web")}
-      onAppClick={() => setPage("app")}
-    />
+    (isMobile && !continuePressed) ? <IntroPage setContinuePressed={setContinuePressed} /> : <HomePage isMobile={isMobile} />
   );
 }
 

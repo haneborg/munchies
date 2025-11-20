@@ -1,3 +1,13 @@
-.header-logo {
-    padding-bottom: 30px;
+@media (max-width: 480px) {
+    .header-logo {
+        width: 167px;
+        height: 24px;
+        padding-bottom: 10px;
+    }
+}
+
+@media (min-width: 481px) {
+    .header-logo {
+        padding-bottom: 25px;
+    }
 }

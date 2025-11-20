@@ -16,9 +16,10 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ isOpen, deliveryTime, c
         <>
             <div className="card restaurant-card">
                 <div className="top-content">
-                    <p className={"open-status " + isOpenString}>
-                        <div className={"colored-circle " + isOpenString}></div>
-                        {isOpenStringCapitalized}</p>
+                    <div className="open-status">
+                        <p className={"colored-circle " + isOpenString}></p>
+                        <p className={isOpenString}> {isOpenStringCapitalized}</p>
+                    </div>
                     {isOpen && <p className="delivery-time">{deliveryTime} min</p>}
                 </div>
                 <img src={`/src/assets/images/${category}.png`} className={"restaurant-category-image " + isOpenString} />

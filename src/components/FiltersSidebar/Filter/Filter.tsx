@@ -3,15 +3,15 @@ import './Filter.css';
 
 interface FilterProps {
     title: string;
-    options: [string, boolean][];
-    setOptions: React.Dispatch<React.SetStateAction<[string, boolean][]>>;
+    selectedOptions: [string, boolean][];
+    setSelectedOptions: React.Dispatch<React.SetStateAction<[string, boolean][]>>;
     layout?: "single-column" | "auto";
 }
 
-const Filter: React.FC<FilterProps> = ({ title, options, setOptions, layout = "auto" }) => {
+const Filter: React.FC<FilterProps> = ({ title, selectedOptions, setSelectedOptions, layout = "auto" }) => {
 
     const handleOptionClick = (index: number) => {
-        setOptions(prev => {
+        setSelectedOptions(prev => {
             const copy = [...prev];
             const [name, selected] = copy[index];
             copy[index] = [name, !selected];
@@ -23,10 +23,10 @@ const Filter: React.FC<FilterProps> = ({ title, options, setOptions, layout = "a
         <div className="filter">
             <p className="filter-title">{title}</p>
             <div className={`options-container ${layout}`}>
-                {options.map(([optionName, isSelected], index) => (
+                {selectedOptions.map(([optionName, isSelected], index) => (
                     <button
                         key={index}
-                        className={"card " +`option-button ${isSelected ? "selected" : ""}`}
+                        className={"card " + `option-button ${isSelected ? "selected" : ""}`}
                         onClick={() => handleOptionClick(index)}
                     >
                         {optionName}

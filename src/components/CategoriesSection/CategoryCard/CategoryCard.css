@@ -1,7 +1,13 @@
 .category-card {
     width: 160px;
+    min-width: 160px;
     height: 80px;
     position: relative;
+}
+
+.category-card.selected {
+    background-color: var(--green);
+    color: white;
 }
 
 .category-name {

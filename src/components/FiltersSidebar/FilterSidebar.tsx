@@ -32,19 +32,19 @@ const FilterSidebar: React.FC<FilterSidebarProps> = () => {
                 <p className="sidebar-title">Filter</p>
                 <Filter
                     title="FOOD CATEGORY"
-                    options={categoryFilters}
-                    setOptions={setCategoryFilters}
+                    selectedOptions={categoryFilters}
+                    setSelectedOptions={setCategoryFilters}
                     layout="single-column"
                 />
                 <Filter
                     title="DELIVERY TIME"
-                    options={deliveryTimeFilters}
-                    setOptions={setDeliveryTimeFilters}
+                    selectedOptions={deliveryTimeFilters}
+                    setSelectedOptions={setDeliveryTimeFilters}
                 />
                 <Filter
                     title="PRICE RANGE"
-                    options={priceRangeFilters}
-                    setOptions={setPriceRangeFilters}
+                    selectedOptions={priceRangeFilters}
+                    setSelectedOptions={setPriceRangeFilters}
                 />
             </div>
         </>

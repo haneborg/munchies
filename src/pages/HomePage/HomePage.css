@@ -1,0 +1,38 @@
+.home-page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100svw;
+    height: 100svh;
+    padding-top: 56px;
+    box-sizing: border-box;
+    background-color: var(--white);
+}
+
+.home-content {
+    padding-bottom: 20px;
+}
+
+@media (max-width: 480px) {
+    .home-page {
+        padding-left: calc((100svw - 330px) / 2);
+    }
+
+    .home-content {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (min-width: 481px) {
+    .home-page {
+        padding-left: 40px;
+    }
+
+    .home-content {
+        display: flex;
+        flex-direction: row;
+        margin-top: 20px;
+    }
+}
