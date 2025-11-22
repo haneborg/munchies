@@ -1,20 +1,22 @@
 import React from "react";
 import './CategoryCard.css';
+import type { FilterItem } from "../../../api/api";
+import type { SelectableFilterItem } from "../../../api/queries";
 
 interface CategoryCardProps {
-    name: string;
     index: number;
+    filter: FilterItem;
     isSelected: boolean;
-    selectedCategories: [string, boolean][];
-    setSelectedCategories: React.Dispatch<React.SetStateAction<[string, boolean][]>>;
+    selectedCategories: SelectableFilterItem[];
+    setSelectedCategories: React.Dispatch<React.SetStateAction<SelectableFilterItem[]>>;
 }
 
-const CategoryCard: React.FC<CategoryCardProps> = ({ name, index, isSelected, selectedCategories, setSelectedCategories }) => {
+const CategoryCard: React.FC<CategoryCardProps> = ({ filter, index, isSelected, setSelectedCategories }) => {
     const handleCategoryClick = () => {
         setSelectedCategories(prev => {
             const copy = [...prev];
-            const [name, selected] = copy[index];
-            copy[index] = [name, !selected];
+            const item = copy[index];
+            copy[index] = { filter: item.filter, selected: !item.selected };
             return copy;
         });
     };
@@ -22,8 +24,8 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ name, index, isSelected, se
     return (
         <>
             <div className={"card category-card" + (isSelected ? " selected" : "")} onClick={handleCategoryClick}>
-                <p className="category-name">{name}</p>
-                <img src={`/src/assets/images/${name}.png`} className="category-image" />
+                <p className="category-name">{filter.name}</p>
+                <img src={`/src/assets${filter.image_url.toLowerCase()}`} className="category-image" />
             </div>
         </>
     );

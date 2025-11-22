@@ -3,13 +3,14 @@
     font-size: 24px;
     line-height: 100%;
     letter-spacing: -0.5px;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 .sidebar {
     width: 239px;
     height: 100%;
-    padding: 24px;
+    padding-top: 24px;
+    padding-left: 24px;
     margin-right: 20px;
     gap: 32px;
 }

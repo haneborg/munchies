@@ -1,31 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import './FilterSidebar.css';
 import Filter from "./Filter/Filter";
+import type { SelectableFilterItem } from "../../api/queries";
 
-interface FilterSidebarProps { }
+interface FilterSidebarProps {
+    categoryFilters: SelectableFilterItem[];
+    setCategoryFilters: React.Dispatch<React.SetStateAction<SelectableFilterItem[]>>;
+    deliveryTimeFilters: SelectableFilterItem[];
+    setDeliveryTimeFilters: React.Dispatch<React.SetStateAction<SelectableFilterItem[]>>;
+    priceRangeFilters: SelectableFilterItem[];
+    setPriceRangeFilters: React.Dispatch<React.SetStateAction<SelectableFilterItem[]>>;
+}
 
-const FilterSidebar: React.FC<FilterSidebarProps> = () => {
-    const [categoryFilters, setCategoryFilters] = useState<[string, boolean][]>([
-        ["Burgers", false],
-        ["Pizza", false],
-        ["Asian", false],
-        ["Vegan", false],
-    ]);
-
-    const [deliveryTimeFilters, setDeliveryTimeFilters] = useState<[string, boolean][]>([
-        ["0-10 min", false],
-        ["10-30 min", false],
-        ["30-60 min", false],
-        ["60+ min", false],
-    ]);
-
-    const [priceRangeFilters, setPriceRangeFilters] = useState<[string, boolean][]>([
-        ["$", false],
-        ["$$", false],
-        ["$$$", false],
-        ["$$$$", false],
-    ]);
-
+const FilterSidebar: React.FC<FilterSidebarProps> = ({ categoryFilters, setCategoryFilters, deliveryTimeFilters, setDeliveryTimeFilters, priceRangeFilters, setPriceRangeFilters }) => {
     return (
         <>
             <div className="card sidebar">

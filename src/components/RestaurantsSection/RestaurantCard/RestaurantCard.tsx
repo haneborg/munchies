@@ -5,10 +5,10 @@ interface RestaurantCardProps {
     name: string;
     isOpen: boolean;
     deliveryTime: number;
-    category: string;
+    imageUrl: string;
 }
 
-const RestaurantCard: React.FC<RestaurantCardProps> = ({ isOpen, deliveryTime, category, name }) => {
+const RestaurantCard: React.FC<RestaurantCardProps> = ({ isOpen, deliveryTime, imageUrl, name }) => {
     const isOpenString = isOpen ? "open" : "closed";
     const isOpenStringCapitalized = isOpen ? "Open" : "Closed";
 
@@ -22,7 +22,7 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ isOpen, deliveryTime, c
                     </div>
                     {isOpen && <p className="delivery-time">{deliveryTime} min</p>}
                 </div>
-                <img src={`/src/assets/images/${category}.png`} className={"restaurant-category-image " + isOpenString} />
+                <img src={`/src/assets${imageUrl}`} className={"restaurant-category-image " + isOpenString} />
                 {!isOpen && <div className="centered"><p className="opening-time-overlay">
                     Opens tomorrow at 12 pm
                 </p></div>}

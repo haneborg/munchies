@@ -1,27 +1,23 @@
-import React, { useState } from "react";
+import React from "react";
 import CategoryCard from "./CategoryCard/CategoryCard";
 import './CategoriesSection.css';
+import { type SelectableFilterItem } from "../../api/queries";
 
-interface CategoriesSectionProps { }
+interface CategoriesSectionProps {
+    categoryFilters: SelectableFilterItem[];
+    setCategoryFilters: React.Dispatch<React.SetStateAction<SelectableFilterItem[]>>;
+}
 
-const CategoriesSection: React.FC<CategoriesSectionProps> = () => {
-    const [categoryFilters, setCategoryFilters] = useState<[string, boolean][]>([
-        ["Hamburger", false],
-        ["Pizza", false],
-        ["Hamburger", false],
-        ["Hamburger", false],
-        ["Hamburger", false],
-        ["Hamburger", false],
-    ]);
-
+const CategoriesSection: React.FC<CategoriesSectionProps> = ({ categoryFilters, setCategoryFilters }) => {
     return (
         <>
             <div className="categories-row">
-                {categoryFilters.map(([name, isSelected], index) => (
+                {categoryFilters.map((f, index) => (
                     <CategoryCard
+                        key={f.filter.id}
                         index={index}
-                        name={name}
-                        isSelected={isSelected}
+                        filter={f.filter}
+                        isSelected={f.selected}
                         selectedCategories={categoryFilters}
                         setSelectedCategories={setCategoryFilters}
                     />
