@@ -28,7 +28,9 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ isOpen, deliveryTime, i
                 </p></div>}
                 <div className={"bottom-content " + isOpenString}>
                     <p className={"name " + isOpenString}>{name}</p>
-                    <p className={"button"}>→</p>
+                    <div className={"button"}>
+                        <img src={"/assets/images/arrow.svg"} />
+                    </div>
                 </div>
             </div>
         </>
