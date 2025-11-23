@@ -2,17 +2,17 @@ import React from 'react';
 import './Header.css';
 
 interface HeaderProps {
-    whiteLogo?: boolean;
+    isWhiteLogo?: boolean;
 }
 
-const Header: React.FC<HeaderProps> = ({ whiteLogo }) => {
+const Header: React.FC<HeaderProps> = ({ isWhiteLogo }) => {
     return (
         <>
             <div>
-                {whiteLogo ? (
-                    <img src="/src/assets/logo/logo-white.svg" className="header-logo" />
+                {isWhiteLogo ? (
+                    <img src="/assets/logo/logo-white.svg" className="header-logo" />
                 ) : (
-                    <img src="/src/assets/logo/logo-black.svg" className="header-logo" />
+                    <img src="/assets/logo/logo-black.svg" className="header-logo" />
                 )}
             </div>
         </>

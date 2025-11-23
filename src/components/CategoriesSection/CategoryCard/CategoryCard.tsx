@@ -25,7 +25,7 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ filter, index, isSelected, 
         <>
             <div className={"card category-card" + (isSelected ? " selected" : "")} onClick={handleCategoryClick}>
                 <p className="category-name">{filter.name}</p>
-                <img src={`/src/assets${filter.image_url.toLowerCase()}`} className="category-image" />
+                <img src={`/assets${filter.image_url.toLowerCase()}`} className="category-image" />
             </div>
         </>
     );

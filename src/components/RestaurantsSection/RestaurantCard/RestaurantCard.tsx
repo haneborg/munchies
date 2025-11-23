@@ -22,7 +22,7 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ isOpen, deliveryTime, i
                     </div>
                     {isOpen && <p className="delivery-time">{deliveryTime} min</p>}
                 </div>
-                <img src={`/src/assets${imageUrl}`} className={"restaurant-category-image " + isOpenString} />
+                <img src={`/assets${imageUrl}`} className={"restaurant-category-image " + isOpenString} />
                 {!isOpen && <div className="centered"><p className="opening-time-overlay">
                     Opens tomorrow at 12 pm
                 </p></div>}

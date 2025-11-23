@@ -13,7 +13,7 @@ const IntroPage: React.FC<IntroPageProps> = ({ setContinuePressed }) => {
 
     return (
         <div className="intro-page">
-            <Header whiteLogo={true} />
+            <Header isWhiteLogo={true} />
             <div className='intro-content'>
                 <h1 className="intro-header">Treat yourself.</h1>
                 <p className="intro-text">Find the best restaurants in your city and get it delivered to your place!</p>
