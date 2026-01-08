@@ -36,6 +36,6 @@
   typography, and responsive variants into code, but it improved my understanding
   of designer–developer workflows.
 
-- Designing a responsive layout for both mobile and desktop highlighted the importance of planning layout responsibilities early and relying more on flexible layout systems.
+- Designing a responsive layout for both mobile and desktop highlighted the importance of planning for responsive design early and relying more on flexible layout systems.
 
 
