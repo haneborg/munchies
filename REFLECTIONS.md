@@ -1,10 +1,10 @@
 ## How the assignment was solved
 
-- Initialized the project using **React + Vite** for fast development and minimal configuration.
-- Analyzed the **Figma design** and decomposed it into logical, reusable React components.
-- Implemented the UI using dummy data to decouple layout and interaction from API concerns.
-- Implemented a responsive layout supporting both mobile and desktop variants.
-- Integrated the provided API to populate the application with real data.
+1. Initialized the project using **React + Vite** for fast development and minimal configuration.
+2. Analyzed the **Figma design** and decomposed it into logical, reusable React components.
+3. Implemented the UI using dummy data to decouple layout and API. 
+4. Updated the UI to have a responsive layout supporting both mobile and desktop variants.
+5. Integrated the provided API to populate the application with real data.
 
 ## Improvements
 
@@ -16,11 +16,37 @@
     - This would reduce unnecessary refetching, improve caching granularity, and make the data layer more flexible.
     - This approach scales better as application complexity grows and enables more targeted invalidation and reuse across views.
 
-- Use *React Query* features such as query invalidation and `staleTime` to avoid stale data if the data was subject to change.
 
-- The frontend currently relies directly on API response models.
-  Introducing a clear separation between API DTOs and frontend domain models
-  (e.g. `RestaurantDTO` → `Restaurant`) would reduce coupling to backend changes.
+```js
+  export function useRestaurants() {
+    return useQuery({
+      queryKey: ["restaurants"],
+      queryFn: getRestaurants,
+    });
+  }
+```
+  
+
+- Use *React Query* features such as query invalidation to avoid stale data if the data was subject to change (e.g. `RestaurantOpenStatus`) 
+
+- Introducing a clear separation between API DTOs and frontend domain models. Would reduce coupling to backend changes.
+
+``` js
+  export interface FilterItemDTO {
+    id: string;
+    name: string;
+    image_url: string;
+  }
+```
+``` js
+  export interface FilterItem {
+    id: string;
+    name: string;
+    image_url: string;
+    selected: boolean;
+  }
+```
+
 
 ### Styling & Responsiveness
 
